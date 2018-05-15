@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".git", ".git", "{A138A472-DB15-493F-BB87-02369F065A7C}"
+ProjectSection(SolutionItems) = preProject
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CE431FFB-3255-40CB-9353-00EC2EFE9244}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DAF73175-C553-4C55-9C24-BAF58BC393A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Footy.Tests", "tests\Footy.Tests\Footy.Tests.csproj", "{B2601065-9DE7-4499-A925-A999FEACBBDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Footy.Features", "tests\Footy.Features\Footy.Features.csproj", "{71D93498-C400-4D37-995D-1631765A6D9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B2601065-9DE7-4499-A925-A999FEACBBDA} = {DAF73175-C553-4C55-9C24-BAF58BC393A9}
+		{71D93498-C400-4D37-995D-1631765A6D9B} = {DAF73175-C553-4C55-9C24-BAF58BC393A9}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2601065-9DE7-4499-A925-A999FEACBBDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2601065-9DE7-4499-A925-A999FEACBBDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2601065-9DE7-4499-A925-A999FEACBBDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2601065-9DE7-4499-A925-A999FEACBBDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71D93498-C400-4D37-995D-1631765A6D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71D93498-C400-4D37-995D-1631765A6D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71D93498-C400-4D37-995D-1631765A6D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71D93498-C400-4D37-995D-1631765A6D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
