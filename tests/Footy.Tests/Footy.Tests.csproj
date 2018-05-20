@@ -10,6 +10,7 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Players" />
+    <ProjectReference Include="..\..\src\Footy.Rest.Api\Footy.Rest.Api.csproj" />
+    <ProjectReference Include="..\Footy.TestUtilities\Footy.TestUtilities.csproj" />
   </ItemGroup>
 </Project>

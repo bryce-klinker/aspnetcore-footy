@@ -21,7 +21,7 @@ namespace Footy.Features.General
             {
                 return assembly.GetTypes().Where(t => t.IsPublic);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return Enumerable.Empty<Type>();
             }

@@ -17,13 +17,6 @@ namespace Footy.Features.General.Scenarios
 
         public static ScenarioContext Current => _current ?? (_current = new ScenarioContext());
 
-        public void Dispose()
-        {
-            _current = null;
-            foreach (var disposable in _data.Values.OfType<IDisposable>())
-                disposable.Dispose();
-        }
-
         public void Set<T>(string key, T value)
         {
             _data.TryAdd(key, value);
@@ -34,6 +27,18 @@ namespace Footy.Features.General.Scenarios
             return _data.TryGetValue(key, out var value)
                 ? (T) value
                 : default(T);
+        }
+
+        public T GetOrAdd<T>(string key, Func<T> factory)
+        {
+            return (T) _data.GetOrAdd(key, k => factory());
+        }
+
+        public void Dispose()
+        {
+            _current = null;
+            foreach (var disposable in _data.Values.OfType<IDisposable>())
+                disposable.Dispose();
         }
     }
 }
