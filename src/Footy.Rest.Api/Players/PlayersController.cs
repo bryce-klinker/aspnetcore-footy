@@ -21,9 +21,30 @@ namespace Footy.Rest.Api.Players
         public async Task<IActionResult> GetAll()
         {
             var players = await _context.Players
-                .Select(p => new PlayerDto())
+                .Select(p => new PlayerDto
+                {
+                    FirstName = p.FirstName,
+                    Id = p.Id,
+                    Surname = p.Surname
+                })
                 .ToArrayAsync();
             return Ok(players);
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var player = await _context.Players
+                .Select(p => new PlayerDto
+                {
+                    FirstName = p.FirstName,
+                    Id = p.Id,
+                    Surname = p.Surname
+                })
+                .SingleOrDefaultAsync(p => p.Id == id);
+            if (player == null)
+                return NotFound();
+            return Ok(player);
         }
     }
 }

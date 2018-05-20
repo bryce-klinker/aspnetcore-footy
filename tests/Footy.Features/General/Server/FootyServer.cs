@@ -34,22 +34,24 @@ namespace Footy.Features.General.Server
         public async Task AddAsync<T>(params T[] entities)
             where T : class
         {
-            using (var scope = GetScope())
-            using (var context = GetService<FootyContext>(scope))
+            using (var context = GetService<FootyContext>())
             {
-                Console.WriteLine($"Entity Type: {typeof(T)}");
-                await context.Players.ToArrayAsync();
                 foreach (var entity in entities)
-                    context.Add(entity);
-                await context.SaveChangesAsync();
+                    context.Service.Add(entity);
+                await context.Service.SaveChangesAsync();
             }
+        }
+
+        public ScopedService<T> GetService<T>()
+        {
+            var scope = GetScope();
+            return new ScopedService<T>(scope);
         }
 
         public void Dispose()
         {
-            using (var scope = GetScope())
-            using (var context = GetService<FootyContext>(scope))
-                context.Database.EnsureDeleted();
+            using (var context = GetService<FootyContext>())
+                context.Service.Database.EnsureDeleted();
             
             _server.Dispose();
         }
@@ -57,11 +59,6 @@ namespace Footy.Features.General.Server
         private IServiceScope GetScope()
         {
             return _server.Host.Services.CreateScope();
-        }
-
-        private static T GetService<T>(IServiceScope scope)
-        {
-            return scope.ServiceProvider.GetRequiredService<T>();
         }
     }
 }

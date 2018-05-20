@@ -23,5 +23,15 @@ namespace Footy.Features.Players
             await When("I get all players");
             await Then("I should see 5 players");
         }
+
+        [Fact]
+        [Scenario("Get Single Player")]
+        public async Task GetSinglePlayer()
+        {
+            await Given("3 players are available");
+            await Given("player with name Bob Joe");
+            await When("I get player with name Bob Joe");
+            await Then("I should see player with name Bob Joe");
+        }
     }
 }
